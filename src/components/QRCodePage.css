@@ -1,0 +1,68 @@
+/* QRCodePage.css */
+.qr-code-page {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #d22163; /* Cranberry Color */
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header {
+    background-color: #d22163; /* Cranberry */
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 20vw; /* 20% of the viewport width */
+    height: auto;
+  }
+  
+  .main-content {
+    margin-top: 30px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #d22163; /* Cranberry */
+    margin-bottom: 20px;
+  }
+  
+  .generate-btn {
+    background-color: #d22163; /* Cranberry */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .generate-btn:hover {
+    background-color: #a91e50; /* Darker Cranberry */
+  }
+  
+  .qr-container {
+    margin-top: 30px;
+  }
+  
+  .qr-text {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .qr-code {
+    margin-bottom: 20px;
+  }
+  
+  .qr-link a {
+    color: #d22163; /* Cranberry */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .qr-link a:hover {
+    text-decoration: underline;
+  }
+  
