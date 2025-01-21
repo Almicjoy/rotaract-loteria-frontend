@@ -3,6 +3,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 import axios from 'axios';
 import './QRCodePage.css'; // External CSS for styling
 import logo from '../assets/logo.png'
+import ClearCards from './ClearCards';
 
 const QRCodePage = () => {
   const [cardUrl, setCardUrl] = useState('');
@@ -36,7 +37,9 @@ const QRCodePage = () => {
           </div>
         )}
       </main>
+      <ClearCards/>
     </div>
+   
   );
 };
 

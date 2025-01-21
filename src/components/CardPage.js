@@ -14,6 +14,7 @@ const CardPage = () => {
         const response = await fetch(`https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api/card/${id}`);
         const data = await response.json();
         if (data.images) {
+          console.log(data.images)
           setCardImages(data.images); // Store the images
         } else {
           throw new Error("Card images not found");
@@ -35,6 +36,8 @@ const CardPage = () => {
       [imageUrl]: !prevSelected[imageUrl], // Toggle the selection
     }));
   };
+
+  
 
   return (
     <div>
