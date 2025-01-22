@@ -13,9 +13,9 @@ const CardPage = () => {
       try {
         const response = await fetch(`https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api/card/${id}`);
         const data = await response.json();
-        if (data.cards) {
-          console.log(data.cards);
-          setCards(data.cards); // Store all the cards
+        if (data.images) {
+          console.log(data.images);
+          setCards(data.images); // Store the card arrays
         } else {
           throw new Error("Cards not found");
         }
