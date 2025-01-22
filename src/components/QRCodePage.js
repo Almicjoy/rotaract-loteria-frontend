@@ -1,35 +1,49 @@
 import React, { useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import axios from 'axios';
-import './QRCodePage.css'; // External CSS for styling
-import logo from '../assets/logo.png'
+import './QRCodePage.css';
+import logo from '../assets/logo.png';
 import ClearCards from './ClearCards';
 
 const QRCodePage = () => {
   const [cardUrl, setCardUrl] = useState('');
+  const [cardCount, setCardCount] = useState(1); // Default to 1 card
 
   const generateQRCode = async () => {
     try {
-      const response = await axios.get('https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api/generate');
-      setCardUrl(response.data.cardUrl);
+      const response = await axios.get(`https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api/generate?count=${cardCount}`);
+      setCardUrl(response.data.cardUrl); // Store the generated URL
     } catch (error) {
-      console.error('Error generating card:', error);
+      console.error('Error generating cards:', error);
     }
   };
 
   return (
     <div className="qr-code-page">
       <header className="header">
-        <img src={logo} alt="Logo" className="logo" /> {/* Use the imported logo */}
+        <img src={logo} alt="Logo" className="logo" />
       </header>
       <main className="main-content">
         <h1>Generate Lotería Card QR Code</h1>
+        <div className="card-options">
+          <label htmlFor="card-count">Number of Cards:</label>
+          <select
+            id="card-count"
+            value={cardCount}
+            onChange={(e) => setCardCount(Number(e.target.value))}
+            className="card-count-select"
+          >
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+          </select>
+        </div>
         <button className="generate-btn" onClick={generateQRCode}>
           Generate QR Code
         </button>
         {cardUrl && (
           <div className="qr-container">
-            <p className="qr-text">Scan the QR Code to view your card:</p>
+            <p className="qr-text">Scan the QR Code to view your cards:</p>
             <QRCodeCanvas value={cardUrl} size={256} className="qr-code" />
             <p className="qr-link">
               Or visit: <a href={cardUrl} target="_blank" rel="noopener noreferrer">{cardUrl}</a>
@@ -37,9 +51,8 @@ const QRCodePage = () => {
           </div>
         )}
       </main>
-      <ClearCards/>
+      <ClearCards />
     </div>
-   
   );
 };
 
