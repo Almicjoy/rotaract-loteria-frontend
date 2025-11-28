@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api';
+const API_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
 
 export const getLoteriaCard = async () => {
   try {

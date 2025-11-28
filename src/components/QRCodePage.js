@@ -11,7 +11,7 @@ const QRCodePage = () => {
 
   const generateQRCode = async () => {
     try {
-      const response = await axios.get(`https://rotaract-loteria-backend-3c90567e12a3.herokuapp.com/api/generate?count=${cardCount}`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/generate?count=${cardCount}`);
       setCardUrl(response.data.cardUrl); // Store the generated URL
     } catch (error) {
       console.error('Error generating cards:', error);
