@@ -11,7 +11,7 @@ const QRCodePage = () => {
 
   const generateQRCode = async () => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/generate?count=${cardCount}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/generate?count=${cardCount}`);
       setCardUrl(response.data.cardUrl); // Store the generated URL
     } catch (error) {
       console.error('Error generating cards:', error);

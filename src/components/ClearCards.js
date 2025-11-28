@@ -16,7 +16,7 @@ const ClearCards = ({ onClear }) => {
 
   const handleClearCards = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/clear-cards`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/clear-cards`, {
         method: "DELETE",
       });
       const data = await response.json();

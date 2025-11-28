@@ -11,7 +11,7 @@ const CardPage = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/card/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/card/${id}`);
         const data = await response.json();
         if (data.images) {
           console.log(data.images);
